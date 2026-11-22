@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amy — Product Strategy & Technical Writing</title>
+  <meta name="description" content="Portfolio of Amy — Product Strategist and Technical Writer specializing in consumer hardware teardowns, SaaS UX audits, and product documentation.">
+  <meta name="author" content="Amy">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(22, 29, 47, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --tag-bg: rgba(56, 189, 248, 0.12);
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0 1.5rem;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 60%, rgba(99, 102, 241, 0.06) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 2.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 6rem 0 4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      background: var(--tag-bg);
+      color: var(--accent);
+      font-size: 0.825rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin-bottom: 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0b0f19;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    section {
+      padding: 4.5rem 0;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Case Studies */
+    .case-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.2s ease;
+    }
+
+    .case-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .case-tag {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      background: var(--tag-bg);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .case-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .case-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      background: rgba(11, 15, 25, 0.5);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-item h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .grid-item p {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .takeaway-list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .takeaway-list li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .takeaway-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Methodology */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .method-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .method-step {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .method-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .method-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Services / Deliverables */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-tags span {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact / Footer */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 16px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .contact-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 1.25rem;
+      }
+      .hero {
+        padding: 4rem 0 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <a href="#" class="brand">Amy<span>.dev</span></a>
+      <nav>
+        <a href="#work">Case Studies</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" style="border-top: none;">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Available for Q4/Q1 freelance projects
+        </div>
+        <h1>Product Strategy &amp; Technical Writing that bridges engineering and UX.</h1>
+        <p>
+          I deconstruct hardware and software products into high-impact case studies, actionable UX roadmaps, and developer-grade documentation.
+        </p>
+        <div class="btn-group">
+          <a href="#work" class="btn btn-primary">Explore Case Studies</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </section>
+
+      <!-- Case Studies Section (Priority 1 & Priority 2) -->
+      <section id="work">
+        <h2 class="section-title">Featured Case Studies</h2>
+        <p class="section-subtitle">Deep architectural teardowns and full-cycle UX audits.</p>
+
+        <!-- Case Study 1: Headphone Teardown -->
+        <article class="case-card">
+          <div class="case-meta">
+            <span class="case-tag">HARDWARE TEARDOWN</span>
+            <span class="case-tag">ACOUSTIC ARCHITECTURE</span>
+            <span class="case-tag">BOM ESTIMATION</span>
+          </div>
+          <h3 class="case-title">Wireless ANC Headphone Teardown: Acoustic Cavity &amp; DSP Trade-offs</h3>
+          <p class="case-desc">
+            A full reverse-engineering analysis dissecting driver selection, feedforward vs. feedback ANC microphone placement, DSP latency bottlenecks, and thermal dissipation inside an enclosed ear cup.
+          </p>
+
+          <div class="case-grid">
+            <div class="grid-item">
+              <h4>Key Problem</h4>
+              <p>Sub-100Hz cancellation dip</p>
+            </div>
+            <div class="grid-item">
+              <h4>Driver Spec</h4>
+              <p>40mm Custom Bio-Cellulose</p>
+            </div>
+            <div class="grid-item">
+              <h4>Est. Unit BOM</h4>
+              <p>38.40 USD (at 50k scale)</p>
+            </div>
+            <div class="grid-item">
+              <h4>Deliverable</h4>
+              <p>18-page Technical Whitepaper</p>
+            </div>
+          </div>
+
+          <ul class="takeaway-list">
+            <li>Identified a 3.2 dB bass leak caused by passive seal degradation during dynamic head movement.</li>
+            <li>Modeled a revised venting aperture reducing acoustic impedance by 14% without compromising moisture protection.</li>
+            <li>Documented firmware-level power gating strategies that preserve up to 2.5 hours of additional battery runtime.</li>
+          </ul>
+
+          <a href="mailto:amyr.freelances@gmail.com?subject=Request%20Full%20Headphone%20Teardown" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Request Full PDF Teardown</a>
+        </article>
+
+        <!-- Case Study 2: SaaS Onboarding Audit -->
+        <article class="case-card">
+          <div class="case-meta">
+            <span class="case-tag">SaaS PRODUCT AUDIT</span>
+            <span class="case-tag">ACTIVATION FUNNELS</span>
+            <span class="case-tag">UX REDESIGN</span>
+          </div>
+          <h3 class="case-title">B2B Workflow Automation: Eliminating 42% Day-0 Drop-Off</h3>
+          <p class="case-desc">
+            End-to-end friction audit of a multi-tenant SaaS workspace onboarding flow. Identified cognitive overload at the workspace setup step and redesigned the path to the primary "Aha!" moment.
+          </p>
+
+          <div class="case-grid">
+            <div class="grid-item">
+              <h4>Benchmark</h4>
+              <p>42% drop-off at API key step</p>
+            </div>
+            <div class="grid-item">
+              <h4>Target Outcome</h4>
+              <p>Sub-3-minute time to first sync</p>
+            </div>
+            <div class="grid-item">
+              <h4>Method</h4>
+              <p>Heuristic audit + user journeys</p>
+            </div>
+            <div class="grid-item">
+              <h4>Deliverable</h4>
+              <p>Interactive Figma Spec &amp; PRD</p>
+            </div>
+          </div>
+
+          <ul class="takeaway-list">
+            <li>Replaced upfront credential input with interactive sandbox presets, cutting first-run setup time by 60%.</li>
+            <li>Consolidated 7 disparate modal forms into a progressive 3-step setup drawer.</li>
+            <li>Defined telemetry event schemas for tracking activation cohorts across Mixpanel and PostHog.</li>
+          </ul>
+
+          <a href="mailto:amyr.freelances@gmail.com?subject=Inquire%20about%20SaaS%20Audit" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View UX Flow Breakdown</a>
+        </article>
+      </section>
+
+      <!-- Methodology Section (Priority 3) -->
+      <section id="methodology">
+        <h2 class="section-title">Research &amp; Strategy Methodology</h2>
+        <p class="section-subtitle">How I turn complex technical ambiguity into crisp product decisions.</p>
+
+        <div class="method-grid">
+          <div class="method-card">
+            <div class="method-step">01 / DECONSTRUCT</div>
+            <h3>System Dissection</h3>
+            <p>Breaking down hardware components, schematics, or software architecture into first principles and primary functional layers.</p>
+          </div>
+          <div class="method-card">
+            <div class="method-step">02 / MAP</div>
+            <h3>Friction Mapping</h3>
+            <p>Tracing operational latency, user cognitive load, and edge-case failure modes across the entire lifecycle.</p>
+          </div>
+          <div class="method-card">
+            <div class="method-step">03 / BENCHMARK</div>
+            <h3>Market &amp; Spec Audits</h3>
+            <p>Benchmarking against industry standards, BOM margins, and competing product offerings to pinpoint strategic leverage.</p>
+          </div>
+          <div class="method-card">
+            <div class="method-step">04 / SYNTHESIZE</div>
+            <h3>Executable Docs</h3>
+            <p>Translating analytical findings into developer-ready PRDs, technical whitepapers, and high-fidelity UX specifications.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services & Deliverables (Priority 4) -->
+      <section id="services">
+        <h2 class="section-title">Services &amp; Engagement Models</h2>
+        <p class="section-subtitle">Scoped sprint deliverables designed for early-stage and scale-up tech teams.</p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div>
+              <h3>Technical Teardowns</h3>
+              <p>In-depth teardowns of competitive consumer electronics or developer tools with BOM estimation and engineering documentation.</p>
+              <div class="service-tags">
+                <span>Hardware analysis</span>
+                <span>Whitepapers</span>
+                <span>Spec sheets</span>
+              </div>
+            </div>
+            <a href="mailto:amyr.freelances@gmail.com?subject=Book%20Teardown%20Project" class="btn btn-secondary">Inquire Scope</a>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <h3>Product Strategy &amp; PRDs</h3>
+              <p>Turning feature requests into actionable product requirements, user story epics, and KPI definition roadmaps.</p>
+              <div class="service-tags">
+                <span>PRD Authoring</span>
+                <span>Feature Roadmaps</span>
+                <span>KPI Schemas</span>
+              </div>
+            </div>
+            <a href="mailto:amyr.freelances@gmail.com?subject=Book%20Product%20Strategy" class="btn btn-secondary">Inquire Scope</a>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <h3>UX &amp; Activation Audits</h3>
+              <p>Deep-dive funnel evaluations identifying points of friction in onboarding, conversion, and workflow retention.</p>
+              <div class="service-tags">
+                <span>Friction Audits</span>
+                <span>Figma Handoff</span>
+                <span>Onboarding Optimization</span>
+              </div>
+            </div>
+            <a href="mailto:amyr.freelances@gmail.com?subject=Book%20UX%20Audit" class="btn btn-secondary">Inquire Scope</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conversion CTA (Priority 4 & 5) -->
+      <section id="contact" style="border-top: none; padding-top: 0;">
+        <div class="contact-card">
+          <h2>Ready to build something exceptional?</h2>
+          <p>Whether you need a full product audit or technical writing for an upcoming release, let's discuss your project.</p>
+          <div class="btn-group" style="justify-content: center;">
+            <a href="mailto:amyr.freelances@gmail.com" class="btn btn-primary">amyr.freelances@gmail.com</a>
+            <a href="https://x.com/AmyRFreelance" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">DM on X (@AmyRFreelance)</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>&copy; 2026 Amy. All rights reserved.</div>
+      <div>Product Strategy &bull; Technical Teardowns &bull; UX Architecture</div>
+    </footer>
+  </div>
+
+</body>
+</html>
